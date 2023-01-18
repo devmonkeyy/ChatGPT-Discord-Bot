@@ -3,8 +3,18 @@ from discord import app_commands
 from discord.ext import commands
 import openai
 import asyncio
+import json
 
-openai.api_key = "API KEY"
+def get_config():
+    with open('./config.json', 'r') as f:
+        config = json.load(f)
+
+    return config
+
+config = get_config()
+
+openai.api_key = config['openai_key']
+bot_token = config['bot_token']
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -64,4 +74,4 @@ async def image(
     await interaction.followup.send(response['data'][0]['url'])
 
 
-bot.run('MTA2NDYxNDc0NzUxOTA2MjAxNg.GpmGV3.OiVTEgE4udb5IVFlx24q6qP9Y5YuPYhbAxQRvM')
+bot.run(bot_token)
