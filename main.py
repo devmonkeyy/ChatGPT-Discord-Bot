@@ -64,4 +64,4 @@ async def image(
     await interaction.followup.send(response['data'][0]['url'])
 
 
-bot.run('MTA2NDYxNDc0NzUxOTA2MjAxNg.GpmGV3.OiVTEgE4udb5IVFlx24q6qP9Y5YuPYhbAxQRvM')
+bot.run('Token')
